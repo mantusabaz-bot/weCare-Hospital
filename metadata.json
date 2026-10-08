@@ -1,0 +1,8 @@
+{
+  "name": "Sabaz weCare Hospitals",
+  "description": "Comprehensive healthcare portal for Sabaz weCare Hospitals featuring world-class departments, specialist doctors, and instant online appointment booking.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

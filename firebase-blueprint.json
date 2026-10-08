@@ -1,0 +1,49 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "Patient user profile and authentication verification record",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "email": { "type": "string" },
+        "displayName": { "type": "string" },
+        "phoneNumber": { "type": "string" },
+        "phoneVerified": { "type": "boolean" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["userId", "email"]
+    },
+    "Appointment": {
+      "title": "Appointment",
+      "description": "Patient outpatient consultation booking record",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "patientName": { "type": "string" },
+        "patientPhone": { "type": "string" },
+        "patientEmail": { "type": "string" },
+        "departmentId": { "type": "string" },
+        "doctorName": { "type": "string" },
+        "appointmentDate": { "type": "string" },
+        "timeSlot": { "type": "string" },
+        "status": {
+          "type": "string",
+          "enum": ["Confirmed", "Completed", "Cancelled"]
+        },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "patientName", "departmentId", "doctorName", "appointmentDate", "timeSlot", "status"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "#/entities/User",
+      "description": "User profile record isolated to owner"
+    },
+    "/appointments/{appointmentId}": {
+      "schema": "#/entities/Appointment",
+      "description": "Outpatient appointment records"
+    }
+  }
+}
